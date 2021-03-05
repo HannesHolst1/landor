@@ -1,0 +1,86 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Pages {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Edit pages</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Edit pages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Page:</h5>
+                                <a href="{% url 'grapesjs:create_new' %}" type="button" class="btn btn-primary" data-toggle="tooltip">Create!</a>
+                                <a href="{% url 'grapesjs:user_content' username %}" type="button" target="_blank" class="btn btn-success" data-toggle="tooltip">View</a>
+                            </div>
+                        </div>                        
+                        {% if versions %}
+                            {% for version in versions %}
+                                    <div class="card">
+                                        <div class="card-header" id="heading{{ version.version }}">
+                                            <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapse{{ version.version }}" aria-expanded="true" aria-controls="collapse{{ version.version }}">Version #{{ version.version }} {% if version.active %} | Active {% endif %}</a></h5>
+                                        </div>
+                                        <div id="collapse{{ version.version }}" class="card-body collapse {% if version.active %}show{% endif %}" aria-labelledby="heading{{ version.version }}" data-parent="#accordionExample">
+                                            <div class="col-xl-12">
+                                                
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-default">Created at</span>
+                                                    </div>
+                                                    <input type="datetime" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="{{ version.created_at }}" readonly>
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-default">Last Update at</span>
+                                                    </div>
+                                                    <input type="datetime" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="{{ version.last_update_at }}" readonly>
+                                                </div>                                                                                               
+                                                
+                                            </div>
+                                            <div style="display: flex; justify-content: flex-end">                                           
+                                                <a href="{% url 'grapesjs:open_grapesjs' version.version %}" target="_blank" type="button" class="btn btn-secondary" data-toggle="tooltip">Edit</a>
+                                              {% if version.active %}
+                                                <button type="button" class="btn btn-danger" title="Version is active" data-toggle="tooltip" disabled>Delete</button>
+                                                <button type="button" class="btn btn-warning" title="Version already active" data-toggle="tooltip" disabled>Activate</button>
+                                              {% else %}
+                                                <a href="{% url 'grapesjs:delete_version' version.version %}" type="button" class="btn btn-danger" data-toggle="tooltip">Delete</a>
+                                                <a href="{% url 'grapesjs:activate_version' version.version %}" type="button" class="btn btn-warning" data-toggle="tooltip">Activate</a>
+                                              {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        {% endif %}
+                        <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

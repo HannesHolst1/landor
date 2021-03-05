@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Welcome to Landor (Calrissian)!</h5>
+                                </div>
+                                <div class="card-block">
+                                    <p>This Web App is an exercise of mine. I wanted to make use of <a href="https://grapesjs.com/" target="_blank">GrapesJS</a> which is a cool "drag & drop" website editor.</p>
+                                    <h5>What is Landor?</h5>
+                                    <p>This Web App allows you to create a Landingpage which is served at <code>http://host/username</code>. You can create multiple versions and select which version you want to serve. Images are stored as Base64 in the HTML-file.<br>
+                                    Btw: Admins are theoritcally also users. But the Landingpage of an admin wouldn't be served.</p>
+                                    <h5>How to get started?</h5>
+                                    <p>On the left, click on "Edit pages" and then click "Create!" to create your first version of your Landingpage.</p>
+                                    <h5>Could Landor be better?</h5>
+                                    <p>Yes, definitely! Before Landor could be an actual product, A LOT of work has to be done. But I wanted primarly integrate GrapesJS only.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

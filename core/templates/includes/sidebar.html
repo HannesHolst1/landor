@@ -1,0 +1,49 @@
+
+    <nav class="pcoded-navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand header-logo">
+                <div class="b-brand">
+                    <div class="b-bg">
+                        <i class="feather icon-upload-cloud"></i>
+                    </div>
+                    <span class="b-title">Landor</span>
+                </div>
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+            </div>
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                        class="nav-item {% if 'index' in segment %} active {% endif %}">
+                        <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Welcome!</span></a>
+                    </li>
+					<li class="nav-item pcoded-menu-caption">
+                        <label>Pages</label>
+                    </li>
+					<li data-username="form elements advance componant validation masking wizard picker select" 
+                        class="nav-item {% if 'user_created_pages' in segment %} active {% endif %}">
+                        <a href="{% url 'grapesjs:user_created_pages' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Edit pages</span></a>
+                    </li>
+					<li data-username="form elements show landingpage"
+                        class="nav-item">
+                        <a href="{% url 'grapesjs:user_content' username %}" target="_blank" class="nav-link"><span class="pcoded-micon"><i class="feather icon-globe"></i></span><span class="pcoded-mtext">Your Landingpage</span></a>
+                    </li>                    
+					<li class="nav-item pcoded-menu-caption">
+                        <label>Authentication</label>
+                    </li>
+                    <li data-username="Reset Pass Menu" class="nav-item">
+                        <a href="/auth-reset-pass.html" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-unlock"></i></span><span class="pcoded-mtext">Reset Pass</span>
+                        </a>
+                    </li>                                        
+                    <li data-username="Disabled Menu" class="nav-item">
+                        <a href="{% url 'auth:logout' %}" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Logout</span>
+                        </a>
+                    </li>                    
+                </ul>
+            </div>
+        </div>
+    </nav>
